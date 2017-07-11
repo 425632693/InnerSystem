@@ -16,7 +16,7 @@
       	格式化简单代码
      </description>
      <name>formatSimpleCode</name><!-- 获取到数据方法中的方法名 -->
-     <function-class>com.cuiboshi.utlis.SimCode</function-class><!-- 获取到数据方法中的类全名 -->
+     <function-class>com.cuiboshi.tags.SimCode</function-class><!-- 获取到数据方法中的类全名 -->
      <!-- 返回值类型        方法（传入的参数） -->
      <function-signature>java.lang.String  formatSimpleCode(java.lang.String)</function-signature>
      <example>

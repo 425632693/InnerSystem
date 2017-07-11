@@ -1,5 +1,7 @@
 package com.cuiboshi.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.transaction.Transactional;
 
@@ -21,12 +23,24 @@ public class SimpleCodeServiceImpl implements ISimpleCodeService{
 	@Resource(name="simpleCodeDaoImpl")
 	private ISimpleCodeDao codeDao;
 	
+	/**
+	 * 根据codeType查询数据
+	 */
 	@Override
-	public SimpleCode get(String code) {
-		System.out.println("传入的数据kk"+code);
-		SimpleCode simpleCodes = (SimpleCode) codeDao.queryHqlUnique(" from SimpleCode where code = ? ", code);
+	public SimpleCode get(String codeType) {
+		System.out.println("传入的数据kk"+codeType);
+		SimpleCode simpleCodes = (SimpleCode) codeDao.queryHqlUnique(" from SimpleCode where codeType = ? ", codeType);
 		return simpleCodes;
 		
+	}
+
+	/**
+	 * 查询所有的简单代码
+	 */
+	@Override
+	public List<SimpleCode> queryAll() {
+		List<SimpleCode> lists = codeDao.queryAll(" from SimpleCode ");
+		return lists;
 	}
 
 }

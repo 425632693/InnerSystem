@@ -1,4 +1,4 @@
-package cn.baisee.utils.tags;
+package com.cuiboshi.tags;
 
 import java.io.IOException;
 

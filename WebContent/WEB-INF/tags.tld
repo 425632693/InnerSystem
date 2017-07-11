@@ -9,12 +9,12 @@
     <display-name>我的自定义标签库</display-name>
     <tlib-version>1.0</tlib-version>
     <short-name>tags</short-name>
-    <uri>http://name/kai</uri>
+    <uri>http://name/cui</uri>
     
     <tag>
     	<description>标签的描述：显示系统当前时间</description>
     	<name>ShowCurrentDate</name>
-    	<tag-class>cn.baisee.utils.tags.ShowCurrentDate</tag-class>
+    	<tag-class>com.cuiboshi.tags.ShowCurrentDate</tag-class>
     	<body-content>empty</body-content>
     	 <!-- 增加属性 -->
 	    <attribute>

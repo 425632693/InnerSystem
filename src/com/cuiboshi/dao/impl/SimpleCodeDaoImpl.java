@@ -1,7 +1,11 @@
 package com.cuiboshi.dao.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -31,6 +35,13 @@ public class SimpleCodeDaoImpl extends BaseDaoImpl<SimpleCode> implements ISimpl
 	public void setTemplate(HibernateTemplate template) {
 		this.template=template;
 		
+	}
+
+	@Override
+	public List<SimpleCode> queryAll(String hql) {
+		Session session = template.getSessionFactory().getCurrentSession();
+		Query query = session.createQuery(hql);
+		return query.list();
 	}
 	
 

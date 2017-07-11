@@ -11,7 +11,18 @@ import com.cuiboshi.entity.SimpleCode;
  */
 public interface ISimpleCodeService {
 
-	public SimpleCode get(String code);
+	/**
+	 * 根据codeType查询数据
+	 * @param code
+	 * @return
+	 */
+	public SimpleCode get(String codeType);
+	
+	/**
+	 * 查询所有的简单代码
+	 * @return
+	 */
+	public List<SimpleCode> queryAll();
 
 	
 }

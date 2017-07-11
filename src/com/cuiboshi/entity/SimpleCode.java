@@ -1,5 +1,7 @@
 package com.cuiboshi.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,7 +16,7 @@ import javax.persistence.Table;
  */
 @Table(name="sys_user_simcod")
 @Entity
-public class SimpleCode {
+public class SimpleCode implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -24,6 +26,8 @@ public class SimpleCode {
 	private String type;
 	@Column
 	private String code;
+	@Column
+	private String codeType;
 
 	public Integer getId() {
 		return id;
@@ -48,5 +52,15 @@ public class SimpleCode {
 	public void setCode(String code) {
 		this.code = code;
 	}
+
+	public String getCodeType() {
+		return codeType;
+	}
+
+	public void setCodeType(String codeType) {
+		this.codeType = codeType;
+	}
+	
+	
 
 }
