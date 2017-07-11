@@ -38,27 +38,42 @@
 			<input type="text" class="form-control" id="page" value="${pageVo.page}">
 			
 			<div class="row">
-			  <div class="col-xs-4 col-md-3">
+			  <div class="col-xs-3 col-md-4">
 			  	  <div class="form-group">
 				    <label for="exampleInputEmail1">用户名：</label>
 				    <input type="text" name="params['uname']" value="${pageVo.params['uname'] }" 
 				    	class="form-control" id="exampleInputEmail1" placeholder="uname">
 				  </div>
 			  </div>
-			  <div class="col-xs-4 col-md-3">
+			  <div class="col-xs-3 col-md-4">
 			  	  <div class="form-group">
 				    <label for="exampleInputEmail1">Email：</label>
 				    <input type="text" name="params['email']" class="form-control" 
 				    	id="exampleInputEmail1" placeholder="Email">
 				  </div>
 			  </div>
-			  <div class="col-xs-4 col-md-3">
+			  <div class="col-xs-3 col-md-4">
 			  	  <div class="form-group">
 				    <label for="exampleInputEmail1">手机号：</label>
 				    <input type="text" name="params['phone']" class="form-control" 
 				    id="exampleInputEmail1" placeholder="phone">
 				  </div>
 			  </div>
+			  
+			  <div class="col-xs-3 col-md-4">
+			  	  <div class="form-group">
+				    <label for="exampleInputEmail1">用户类型</label>
+				    
+				    
+				    <select name="userType">
+					    <c:forEach var="item" items="${e:getCodesByType('100')}" >
+					    	<option value="${item.codeType}">${item.type}</option>
+					    </c:forEach>
+				    </select>
+				    
+				  </div>
+			  </div>
+			  
 			  <div class="col-xs-4 col-md-3" >
 			  	  <div class="form-group">
 				    <button type="submit" class="btn btn-default">查询</button>
