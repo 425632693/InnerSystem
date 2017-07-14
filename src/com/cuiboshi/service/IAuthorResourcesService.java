@@ -31,7 +31,16 @@ public interface IAuthorResourcesService {
 	 */
 	public AuthorResources get(Serializable qid);
 
-	
+	/**
+	 * 删除节点
+	 * @param did
+	 */
 	public void delete(Serializable did);
+	
+	/**
+	 * 查询所有的节点
+	 * @return
+	 */
+	public String queryAll();
 
 }

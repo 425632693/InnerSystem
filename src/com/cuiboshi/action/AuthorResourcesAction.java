@@ -1,7 +1,13 @@
 package com.cuiboshi.action;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Date;
+
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
@@ -91,6 +97,31 @@ public class AuthorResourcesAction implements ModelDriven<PageVo>{
 		System.out.println("进入删除子节点的Action中"+ares.getResId());
 		ars.delete(ares.getResId());
 		return "toList1";
+	}
+	
+	
+	/**
+	 * 查询所有的节点
+	 *  
+	 */
+	@Action("all")
+	public void all() throws IOException{
+		String results = ars.queryAll();
+		try {
+			//获取输出对象
+			HttpServletResponse response = ServletActionContext.getResponse();
+			//指定输出的内容格式
+			response.setContentType("text/html;charset=utf-8");
+			//创建输出流
+			PrintWriter writer = response.getWriter();
+			//向页面输出结果
+			writer.write(results);
+			//清空输出流
+			writer.flush();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println("获取的树结构是："+results);
 	}
 	
 	

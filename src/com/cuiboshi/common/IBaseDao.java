@@ -100,5 +100,13 @@ public interface IBaseDao<T> {
 	 * @return
 	 */
 	public List<Object> queryHqlList(String hql,Serializable... params);
+	
+	/**
+	 * 保存资源与角色之间的关联关系
+	 * @param sql
+	 * @param args
+	 * @return
+	 */
+	public Integer updateSql(String sql,Serializable... args);
 
 }

@@ -43,7 +43,11 @@
 							</span>
 						</li>
 						<li>
-							<span>角色管理</span>
+							<span>
+								<a onclick="changgeRightContent('${pageContext.request.contextPath}/role/toList.htmlx')">
+									角色管理
+								</a>
+							</span>
 						</li>
 						<li>
 							<span>用户角色管理</span>

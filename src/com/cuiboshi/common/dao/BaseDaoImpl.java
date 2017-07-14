@@ -199,7 +199,23 @@ public abstract class BaseDaoImpl<T> implements IBaseDao<T>{
 		
 		return query.list();
 	}
-
+	
+	
+	/**
+	 * 保存资源与角色的关联关系
+	 */
+	public Integer updateSql(String sql,Serializable... args){
+		Session session = template.getSessionFactory().getCurrentSession();
+		Query query = session.createSQLQuery(sql);
+		if(args != null){
+			for (int i = 0; i < args.length; i++) {
+				query.setParameter(i, args[i]);
+			}
+		}
+		
+		Integer row = query.executeUpdate();
+		return row;
+	}
 	
 	
 	

@@ -25,6 +25,9 @@ public class AuthorResources implements Serializable {
 	
 	private static final long serialVersionUID = -7941384660776582002L;
 	
+	@Id
+    @Column
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer resId; //资源Id
 	private String name; //资源名称
 	private String path; //资源路径
@@ -33,9 +36,7 @@ public class AuthorResources implements Serializable {
 	private Date createTs; //创建时间
 	private String note; //备注
 	
-	@Id
-    @Column
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	public Integer getResId() {
 		return resId;
 	}

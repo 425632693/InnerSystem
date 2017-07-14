@@ -35,30 +35,7 @@
 		<!-- 查询消息传递 -->
 		<form class="form-control" id="query" action="${pageContext.request.contextPath}/user/toList.htmlx">
 			
-			<input type="text" class="form-control" id="page" value="${pageVo.page}">
-			
 			<div class="row">
-			  <div class="col-xs-3 col-md-4">
-			  	  <div class="form-group">
-				    <label for="exampleInputEmail1">用户名：</label>
-				    <input type="text" name="params['uname']" value="${pageVo.params['uname'] }" 
-				    	class="form-control" id="exampleInputEmail1" placeholder="uname">
-				  </div>
-			  </div>
-			  <div class="col-xs-3 col-md-4">
-			  	  <div class="form-group">
-				    <label for="exampleInputEmail1">Email：</label>
-				    <input type="text" name="params['email']" class="form-control" 
-				    	id="exampleInputEmail1" placeholder="Email">
-				  </div>
-			  </div>
-			  <div class="col-xs-3 col-md-4">
-			  	  <div class="form-group">
-				    <label for="exampleInputEmail1">手机号：</label>
-				    <input type="text" name="params['phone']" class="form-control" 
-				    id="exampleInputEmail1" placeholder="phone">
-				  </div>
-			  </div>
 			  
 			  <div class="col-xs-3 col-md-4">
 			  	  <div class="form-group">
@@ -86,27 +63,28 @@
 			<thead>
 				<tr>
 					<th>#</th>
-					<th>用户名</th>
-					<th>用户类型</th>
-					<th>Email</th>
-					<th>手机号</th>
-					<th>登录状态</th>
-					<th>家庭地址信息</th>
-					<th>注册时间</th>
+					<th>角色id</th>
+					<th>角色名称</th>
+					<th>创建时间</th>
+					<th>排序方式</th>
+					<th>备注</th>
+					<th>操作</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach var="item" items="${pageVo.rows}" varStatus="status">
 					<tr>
 						<td>${status.index}</td>
-						<td>${item.uname}</td>
-						<td> ${e:formatSimpleCode(item.userType)} </td>
-						<td>${item.email }</td>
-						<td>${item.phone }</td>
-						<td>${item.state }</td>
-						<td>家庭地址信息</td>
-						<td>${item.registerDate }</td>
-						
+						<td>${item.roleId}</td>
+						<td>${item.roleName}</td>
+						<td>${item.createTs }</td>
+						<td>${item.orderBy }</td>
+						<td>${item.note }</td>
+						<td>
+							<a href="${pageContext.request.contextPath}/role/toAuther.htmlx?arole.roleId=${item.roleId}">
+								授权
+							</a>
+						</td>
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -121,7 +99,7 @@
 								<c:choose>
 									<c:when test="${pageVo.page == 1}">
 										<li class="disabled">
-											<a href="${pageContext.request.contextPath}/user/toList.htmlx?page=${pageVo.page}" 
+											<a href="${pageContext.request.contextPath}/role/toList.htmlx?page=${pageVo.page}" 
 											onclick="javascript:void(query(${page}));" aria-label="Previous"> 
 												<span aria-hidden="true">&laquo;</span>
 											</a>
@@ -129,7 +107,7 @@
 									</c:when>
 									<c:otherwise>
 										<li class="Previous">
-											<a href="${pageContext.request.contextPath}/user/toList.htmlx?page=${pageVo.page-1}" 
+											<a href="${pageContext.request.contextPath}/role/toList.htmlx?page=${pageVo.page-1}" 
 											onclick="javascript:void(query(${page-1}));" aria-label="Previous"> 
 												<span aria-hidden="false">&laquo;</span>
 											</a>
@@ -140,7 +118,7 @@
 							
 							<c:forEach begin="1" end="${pageVo.totalPage }" step="1" var="item">
 								<li class="active">
-									<a href="${pageContext.request.contextPath}/user/toList.htmlx?page=${item}">${item}<span class="sr-only">(current)</span></a>
+									<a href="${pageContext.request.contextPath}/role/toList.htmlx?page=${item}">${item}<span class="sr-only">(current)</span></a>
 								</li>
 								<%-- <li><a href="javascript:void(query(${item+1}));">${item+1}</a></li>
 								<li><a href="javascript:void(query(${item+2}));">${item+2}</a></li>
@@ -152,7 +130,7 @@
 								<c:choose>
 									<c:when test="${pageVo.page < pageVo.totalPage}">
 										<li class="Previous">
-											<a href="${pageContext.request.contextPath}/user/toList.htmlx?page=${pageVo.page+1}" 
+											<a href="${pageContext.request.contextPath}/role/toList.htmlx?page=${pageVo.page+1}" 
 												onclick="javascript:void(query(${page+1}));" aria-label="Next"> 
 												<span aria-hidden="false">&raquo;</span>
 											</a>
@@ -160,7 +138,7 @@
 									</c:when>
 									<c:otherwise>
 										<li class="disabled">
-											<a href="${pageContext.request.contextPath}/user/toList.htmlx?page=${pageVo.totalPage}" 
+											<a href="${pageContext.request.contextPath}/role/toList.htmlx?page=${pageVo.totalPage}" 
 											onclick="javascript:void(query(${totalPage}));" aria-label="Next"> 
 												<span aria-hidden="true">&raquo;</span>
 											</a>
